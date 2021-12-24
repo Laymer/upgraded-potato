@@ -58,13 +58,10 @@ void * print_menu(){
 
 void * convert_ascii(){
     char ascii_char;
-    char ASCII;
     printf("Please enter a char: ");
-    // LEADING BLANK IN FRONT OF CONVERSION CHARACTER FOR SCANF ! /!\
-    scanf(" %c", &ASCII); // -> https://stackoverflow.com/questions/5240789/scanf-leaves-the-newline-character-in-the-buffer
-    printf("Please enter a char again: ");
+    // LEADING BLANK IN FRONT OF CONVERSION CHARACTER FOR SCANF !
+    // -> https://stackoverflow.com/questions/5240789/scanf-leaves-the-newline-character-in-the-buffer
     scanf(" %c", &ascii_char);
-    printf("%i\n", ASCII);
     printf("%i\n", ascii_char);
 
     int integer;
