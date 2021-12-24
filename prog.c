@@ -4,6 +4,7 @@
 void * how_many_dogs();
 void * print_menu();
 void * convert_ascii();
+void * arithmetic();
 
 int main(int argc, char const *argv[])
 {
@@ -72,4 +73,8 @@ void * convert_ascii(){
     printf("Here's some bonus math with chars (: :\n");
     char mathz = 'A' + '\t';
     printf("A(65) + \\t(11) = %c(%d)\n", mathz, mathz);
+}
+
+void * arithmetic(){
+    int x = 2 + 3 * 4 / 5 - 6
 }
