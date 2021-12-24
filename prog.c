@@ -68,4 +68,8 @@ void * convert_ascii(){
     printf("Please enter an integer (0 - 127): ");
     scanf("%d", &integer);
     printf("%c\n", integer);
+
+    printf("Here's some bonus math with chars (: :\n");
+    char mathz = 'A' + '\t';
+    printf("A(65) + \\t(11) = %c(%d)\n", mathz, mathz);
 }
