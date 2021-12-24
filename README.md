@@ -21,6 +21,13 @@ From [this post](https://stackoverflow.com/questions/5240789/scanf-leaves-the-ne
 Without doing this, `scanf()` was not actually waiting for user input
 but taking the **LF** as input (Printing out the variable showed ASCII char '10', Line Feed).
 
+```
+    char ascii_char;
+    printf("Please enter a char: ");
+    scanf(" %c", &ascii_char); --> HERE
+    printf("%i\n", ascii_char);
+```
+
 ### Miscellaneous
 
 #### I C what you did there
