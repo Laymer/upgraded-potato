@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 // function declarations
 void * how_many_dogs();
 void * print_menu();
 void * convert_ascii();
 void * arithmetic();
+bool even(int number);
 
 int main(int argc, char const *argv[])
 {
@@ -22,6 +24,10 @@ int main(int argc, char const *argv[])
         case 2 :
             printf("Running convert_ascii()...\n");
             convert_ascii();
+            break;
+        case 3 :
+            printf("Running arithmetic()...\n");
+            arithmetic();
             break;
         default :
             printf("Exiting...\n" );
@@ -55,6 +61,7 @@ void * print_menu(){
 
     printf("1) how_many_dogs()\n");
     printf("2) convert_ascii()\n");
+    printf("3) arithmetic()\n");
 }
 
 void * convert_ascii(){
@@ -76,5 +83,29 @@ void * convert_ascii(){
 }
 
 void * arithmetic(){
-    int x = 2 + 3 * 4 / 5 - 6
+    int x = (2 + ((3 * 4) / 5)) - 2;
+    int y = 5 % 2;
+    printf("Result of (2 + ((3 * 4) / 5)) - 2 = %d\n", x);
+    printf("Result of 5 % 2 = %d\n", y);
+
+    // Sharing pizza with your pet rat, Pepper.
+    // There are 6 pieces of pizza, that can not be split in half
+
+    int pieces_of_pizza = 6;
+    int number_of_eaters = 2;
+    int leftover = pieces_of_pizza % number_of_eaters;
+
+    printf("Leftover pieces of pizza = %d\n", leftover);
+    printf("Is the leftover even or odd?\n");
+    if (even(leftover))
+    {
+        printf("the leftover is an even number !\n");
+    } else {
+        printf("the leftover is an odd number !\n");
+    }        
 }
+
+bool even(int number){
+    return ((number % 2) == 0) ? true : false;
+}
+ 
