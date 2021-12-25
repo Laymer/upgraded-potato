@@ -6,6 +6,7 @@ Learning C programming again for fun :)
 *   [Character Conversion](#character-conversion)
     *   [Leading blank for `scanf()`](#leading-blank-for-scanf)
 *   [Miscellaneous](#miscellaneous)
+    *   [Ternary operators](#ternary-operators)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
