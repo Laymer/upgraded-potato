@@ -30,5 +30,13 @@ but taking the **LF** as input (Printing out the variable showed ASCII char '10'
 
 ### Miscellaneous
 
+#### Ternary operators
+
+It's always nice to use ternary operators. They look like this :
+
+```
+bool isEven = ((number % 2) == 0) ? true : false;
+```
+
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
