@@ -5,8 +5,10 @@ Learning C programming again for fun :)
 
 *   [Character Conversion](#character-conversion)
     *   [Leading blank for `scanf()`](#leading-blank-for-scanf)
-*   [Miscellaneous](#miscellaneous)
+*   [Operators](#operators)
     *   [Ternary operators](#ternary-operators)
+    *   [Unary operators](#unary-operators)
+*   [Miscellaneous](#miscellaneous)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -29,7 +31,7 @@ but taking the **LF** as input (Printing out the variable showed ASCII char '10'
     printf("%i\n", ascii_char);
 ```
 
-### Miscellaneous
+### Operators
 
 #### Ternary operators
 
@@ -38,6 +40,22 @@ It's always nice to use ternary operators. They look like this :
 ```
 bool isEven = ((number % 2) == 0) ? true : false;
 ```
+
+#### Unary operators
+
+In the example below :
+
+```
+    int pizzas_to_eat = 100;
+    int output = pizzas_to_eat++;
+```
+
+The value of `output` is set to **100** :pushpin: :heavy_exclamation_mark: :100: :warning:
+
+The unary operator `++` increases the value of `pizzas_to_eat` only after it's value
+was assigned to `output`.
+
+### Miscellaneous
 
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
