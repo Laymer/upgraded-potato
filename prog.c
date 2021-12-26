@@ -7,6 +7,8 @@ void * print_menu();
 void * convert_ascii();
 void * arithmetic();
 bool even(int number);
+void * unary_plus_minus();
+void * increment_decrement();
 
 int main(int argc, char const *argv[])
 {
@@ -28,6 +30,14 @@ int main(int argc, char const *argv[])
         case 3 :
             printf("Running arithmetic()...\n");
             arithmetic();
+            break;
+        case 4 :
+            printf("Running unary_plus_minus()...\n");
+            unary_plus_minus();
+            break;
+        case 5 :
+            printf("Running unary_plus_minus()...\n");
+            increment_decrement();
             break;
         default :
             printf("Exiting...\n" );
@@ -62,6 +72,8 @@ void * print_menu(){
     printf("1) how_many_dogs()\n");
     printf("2) convert_ascii()\n");
     printf("3) arithmetic()\n");
+    printf("4) unary_plus_minus()\n");
+    printf("5) increment_decrement()\n");
 }
 
 void * convert_ascii(){
@@ -108,4 +120,23 @@ void * arithmetic(){
 bool even(int number){
     return ((number % 2) == 0) ? true : false;
 }
- 
+
+void * unary_plus_minus(){
+    int money = 25;
+    int bill = 15;
+
+    int total = money - -bill; // 25 - -15 = 25 + 15 = 40
+
+    printf("Total = %i\n", total);
+    printf("Bill = %i\n", bill);
+}
+
+void * increment_decrement(){
+    int pizzas_to_eat = 100;
+    int output = pizzas_to_eat++;
+    pizzas_to_eat--;
+    printf("Pizzas to eat (output = pizzas_to_eat++): %d\n", output);
+    
+    output = ++pizzas_to_eat;
+    printf("Pizzas to eat (output = ++pizzas_to_eat): %d\n", output);
+}

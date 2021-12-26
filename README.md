@@ -55,6 +55,16 @@ The value of `output` is set to **100** :pushpin: :heavy_exclamation_mark: :100:
 The unary operator `++` increases the value of `pizzas_to_eat` only after it's value
 was assigned to `output`.
 
+To increment the value of `pizzas_to_eat` **BEFORE** assigning it's value to `output`,
+the operator needs to be placed before the variable :
+
+```
+    int pizzas_to_eat = 100;
+    int output = ++pizzas_to_eat;
+```
+
+Here the value of `output` will be **101** :heavy_exclamation_mark:
+
 ### Miscellaneous
 
 #### I C what you did there
