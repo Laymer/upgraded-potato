@@ -8,6 +8,8 @@ Learning C programming again for fun :)
 *   [Operators](#operators)
     *   [Ternary operators](#ternary-operators)
     *   [Unary operators](#unary-operators)
+*   [Pointers](#pointers)
+    *   [Pointers to struct fields](#pointers-to-struct-fields)
 *   [Miscellaneous](#miscellaneous)
     *   [I C what you did there](#i-c-what-you-did-there)
 
@@ -64,6 +66,28 @@ the operator needs to be placed before the variable :
 ```
 
 Here the value of `output` will be **101** :heavy_exclamation_mark:
+
+### Pointers
+
+#### Pointers to struct fields
+
+From [OverIQ](https://overiq.com/c-programming-101/pointer-to-a-structure-in-c/) :
+
+* * *
+There are two ways of accessing members of structure using pointer:
+
+    - Using indirection (*) operator and dot (.) operator.
+    - Using arrow (->) operator or membership operator.
+* * *
+
+This means :
+
+`(*person).age` (here `person` holds the struct itself)
+
+is equivalent to :
+
+`person->age` (here `person` holds the address of the struct)
+
 
 ### Miscellaneous
 
