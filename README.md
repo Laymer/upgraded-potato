@@ -11,6 +11,7 @@ Learning C programming again for fun :)
 *   [Pointers](#pointers)
     *   [Pointers to struct fields](#pointers-to-struct-fields)
 *   [Miscellaneous](#miscellaneous)
+    *   [Math `pow()` function](#math-pow-function)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -90,6 +91,14 @@ is equivalent to :
 
 
 ### Miscellaneous
+
+#### Math `pow()` function
+
+Trying to use the `math.h` function `pow()`, 
+I ran into the error described [in this post](https://stackoverflow.com/questions/12824134/undefined-reference-to-pow-in-c-despite-including-math-h).
+
+For some reason even with the linker flag, I kept getting the same error
+so I just wrote a power function :smile:
 
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
