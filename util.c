@@ -13,7 +13,16 @@
 
 #include <netinet/in.h>
 #include <arpa/inet.h> // for inet_ntoa
-#include <ifaddrs.h> // for getifaddrs
+#include <ifaddrs.h> // for getifaddrs 
+
+#include <pthread.h> 
+
+#include <time.h>
+
+#include <math.h>
+
+#include <unistd.h>
+// #include <conio.h>
 
 void get_interface_addresses(char * ifname, char * address){
 
@@ -74,5 +83,58 @@ void get_interface_addresses(char * ifname, char * address){
         }        
     }
     freeifaddrs(ifaddr);
-    return;
+}
+
+void * routine(){
+    int precision = 10;
+    int loop=100000; // increase this value to get more digits of PI number
+    srand(10102020); // more secure rand...
+    printf("PI is %.*lf\n", precision, pi(loop));
+}
+
+void thread_the_needle(){
+    printf("we got some nice threads here hehe :)\n");
+    
+    // Just to get the room nice and warm :)
+    int numofcpus = sysconf(_SC_NPROCESSORS_ONLN); // Get the number of logical CPUs.
+    
+    pthread_t workers[32];
+
+    for (int i = 0; i < 32; ++i)
+    {
+        pthread_create(&workers[i]
+            , NULL
+            , &routine // pass reference to function
+            , NULL);        
+    }
+
+    for (int i = 0; i < 32; ++i)
+    {
+        pthread_join(workers[i]
+            , NULL);        
+    }
+}
+
+int power(int x, unsigned int y){
+    if( y == 0)
+        return 1;
+
+    int t = power(x, y/2);  // power is called only once instead of twice.
+
+    return y%2 ? x*t*t : t*t;
+}
+
+// Max Base
+// Monte-Carlo Calculation of Pi
+// GitHub.com/BaseMax/pi
+// A better and alternative way to create random number: https://github.com/BaseMax/SecureRandStringC
+double pi(int loop) {
+    int count=0;
+    for(int i=0;i<loop;i++) {
+        double a=(double)rand()/RAND_MAX;
+        double b=(double)rand()/RAND_MAX;
+        if(1>=a*a+b*b)
+            count++;
+    }
+    return (double)count/loop*4;
 }

@@ -30,6 +30,9 @@ void server();
 // Utility functions
 void print_address(struct sockaddr_in * address, int server_or_client);
 
+// Threading
+void fun_with_threads();
+
 int main(int argc, char const *argv[])
 {
 
@@ -69,6 +72,10 @@ int main(int argc, char const *argv[])
             get_interface_addresses("eth0", ifaddr);
             printf("RESULT = %s\n", ifaddr);
             break;
+        case 8 :
+            printf("Running fun_with_threads()...\n");
+            fun_with_threads();
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -106,6 +113,7 @@ void print_menu(){
     printf("5) increment_decrement()\n");
     printf("6) server()\n");
     printf("7) get_interface_addresses()\n");
+    printf("8) fun_with_threads()\n");
 }
 
 void convert_ascii(){
@@ -257,3 +265,6 @@ void print_address(struct sockaddr_in * address, int server_or_client){
 }
 
 
+void fun_with_threads(){
+    thread_the_needle();
+}

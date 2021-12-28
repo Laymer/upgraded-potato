@@ -15,5 +15,9 @@
  * It tells the compiler that the function exists somewhere.
  */
 void get_interface_addresses(char * ifname, char * address);
+void thread_the_needle();
+void * routine();
+int power(int x, unsigned int y);
+double pi(int loop);
 
 #endif /* UTIL_DOT_H */

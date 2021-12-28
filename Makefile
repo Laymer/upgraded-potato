@@ -1,5 +1,6 @@
 CC=gcc
 CFLAGS=-o
+LDFLAGS=-lm -pthread -lpthread
 SERVER=prog.c
 CLIENT=tcp_client.c
 UTIL=util.c
@@ -7,17 +8,17 @@ CLIENTNAME=client
 SERVERNAME=server
 
 all: client server util
-	$(CC) $(CFLAGS) $(SERVERNAME) prog.o util.o
-	$(CC) $(CFLAGS) $(CLIENTNAME) tcp_client.o util.o
+	$(CC) $(LDFLAGS) $(CFLAGS) $(SERVERNAME) prog.o util.o
+	$(CC) $(LDFLAGS) $(CFLAGS) $(CLIENTNAME) tcp_client.o util.o
 
 client: util
-	$(CC) -Wall -c $(CLIENT)
+	$(CC) $(LDFLAGS) -Wall -c $(CLIENT)
 
 server: util
-	$(CC) -Wall -c $(SERVER)
+	$(CC) $(LDFLAGS) -Wall -c $(SERVER)
 
 util:
-	$(CC) -Wall -c $(UTIL)
+	$(CC) $(LDFLAGS) -c $(UTIL)
 
 clean:
 	rm -rdf ./prog.o

@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-o$/;"	m
+CLIENT	Makefile	/^CLIENT=tcp_client.c$/;"	m
+CLIENT	util.h	10;"	d
+CLIENTNAME	Makefile	/^CLIENTNAME=client$/;"	m
+SERVER	Makefile	/^SERVER=prog.c$/;"	m
+SERVER	util.h	6;"	d
+SERVERNAME	Makefile	/^SERVERNAME=server$/;"	m
+UTIL	Makefile	/^UTIL=util.c$/;"	m
+UTIL_DOT_H	util.h	2;"	d
+arithmetic	prog.c	/^void arithmetic(){$/;"	f
+convert_ascii	prog.c	/^void convert_ascii(){$/;"	f
+even	prog.c	/^bool even(int number){$/;"	f
+fun_with_threads	prog.c	/^void fun_with_threads(){$/;"	f
+get_interface_addresses	util.c	/^void get_interface_addresses(char * ifname, char * address){$/;"	f
+how_many_dogs	prog.c	/^void how_many_dogs(){$/;"	f
+increment_decrement	prog.c	/^void increment_decrement(){$/;"	f
+main	prog.c	/^int main(int argc, char const *argv[])$/;"	f
+main	tcp_client.c	/^int main(int argc, char const *argv[])$/;"	f
+print_address	prog.c	/^void print_address(struct sockaddr_in * address, int server_or_client){$/;"	f
+print_menu	prog.c	/^void print_menu(){$/;"	f
+server	prog.c	/^void server(){$/;"	f
+thread_the_needle	util.c	/^void thread_the_needle(){$/;"	f
+unary_plus_minus	prog.c	/^void unary_plus_minus(){$/;"	f
