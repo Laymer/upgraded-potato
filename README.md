@@ -156,10 +156,10 @@ So there are total eight processes (new child processes and one original process
 
 If we want to represent the relationship between the processes as a tree hierarchy it would be the following:
 
-The main process: P0
-Processes created by the 1st fork: P1
-Processes created by the 2nd fork: P2, P3
-Processes created by the 3rd fork: P4, P5, P6, P7
+- The main process: P0
+- Processes created by the 1st fork: P1
+- Processes created by the 2nd fork: P2, P3
+- Processes created by the 3rd fork: P4, P5, P6, P7
 
 ```
             P0        
