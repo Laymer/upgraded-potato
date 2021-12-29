@@ -9,6 +9,7 @@
 
 #include <sys/socket.h>
 #include <sys/types.h>
+#include <sys/wait.h> // for wait (obviously...)
 #include <netdb.h> // for getaddrinfo
 
 #include <netinet/in.h>
@@ -19,7 +20,7 @@
 
 #include <time.h>
 
-#include <math.h>
+#include <signal.h> // SIGKILL
 
 #include <unistd.h>
 // #include <conio.h>
@@ -137,4 +138,55 @@ double pi(int loop) {
             count++;
     }
     return (double)count/loop*4;
+}
+
+void * we_are_not_procs(){
+    printf("we are threads !\n");
+}
+void threads_vs_procs(){
+    printf("threads are cool but what about procs? :o\n");
+
+    // procs
+    int pid = fork();
+    if (pid == -1)
+    {
+        perror("OH NO ! :(");
+    }
+
+    if (pid == 0)
+    {
+        printf("Child : Hi I am the kid\n"); // pid = 0 is returned to child proc
+    } else {
+        printf("Parent : Hi I am the papa\n"); // pid > 0 is returned to parent proc
+        // kill(pid,SIGKILL); --> uncomment this line for bad parenting (kid = dead)
+        wait(NULL); // to wait until child has finished
+        printf("Parent : I think something happened to my kid :/\n");
+    }
+    if (pid > 0)
+    {
+        // parent
+        // pthreads
+        pthread_t threadz[2];
+        int array_len = sizeof(threadz) / sizeof(pthread_t);
+        printf("number of elements : %d\n", array_len);
+
+        for (int i = 0; i < array_len; ++i)
+        {
+            pthread_create(&threadz[i]
+                , NULL
+                , &we_are_not_procs
+                , NULL);
+        }
+
+        for (int i = 0; i < array_len; ++i)
+        {
+            pthread_join(threadz[i]
+                , NULL);
+        }
+    }
+
+    if (pid == 0)
+    {
+        printf("Child : still alive ahah !\n"); // if SIGKILL is sent before wait(NULL) this line is not printed
+    }
 }

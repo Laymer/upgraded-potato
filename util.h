@@ -19,5 +19,6 @@ void thread_the_needle();
 void * routine();
 int power(int x, unsigned int y);
 double pi(int loop);
+void threads_vs_procs();
 
 #endif /* UTIL_DOT_H */

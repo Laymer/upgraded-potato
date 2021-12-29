@@ -76,6 +76,10 @@ int main(int argc, char const *argv[])
             printf("Running fun_with_threads()...\n");
             fun_with_threads();
             break;
+        case 9 :
+            printf("Running threads_vs_procs()...\n");
+            threads_vs_procs();
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -114,6 +118,7 @@ void print_menu(){
     printf("6) server()\n");
     printf("7) get_interface_addresses()\n");
     printf("8) fun_with_threads()\n");
+    printf("9) threads_vs_procs()\n");
 }
 
 void convert_ascii(){
