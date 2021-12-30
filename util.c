@@ -222,10 +222,10 @@ void remember_to_free(){
     // warning: ‘__builtin_memcpy’ writing 30 bytes into a region of size 16 overflows the destination
     printf("----------------------------------------------------\n");
     str = (char *) realloc(str, 32 * sizeof(char));
-    
+
     strcpy(str, "tutorialspoint-tutorialspoint"); // cool :)
 
-    for (p = str; *p; p++) // at the end of a string, *p evaluates to zero ('\0') thus false and loop terminates
+    for (p = str; *p; p++) // at the end of a string, *p (value of) evaluates to zero ('\0') thus false and loop terminates
     {
         printf("Character = %c,  Address = %u\n", *p, p);
     }
