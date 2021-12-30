@@ -143,6 +143,7 @@ double pi(int loop) {
 void * we_are_not_procs(){
     printf("we are threads !\n");
 }
+
 void threads_vs_procs(){
     printf("threads are cool but what about procs? :o\n");
 
@@ -189,4 +190,45 @@ void threads_vs_procs(){
     {
         printf("Child : still alive ahah !\n"); // if SIGKILL is sent before wait(NULL) this line is not printed
     }
+}
+
+void remember_to_free(){
+
+    // function signature :
+    // 
+    // void *malloc(size_t size) // size is the size of the memory block in bytes
+    // 
+    // returns a pointer to the first byte of allocated block or NULL if it fails 
+
+    // void * calloc(size_t num, size_t size) // allocates a block of (num * size)
+    // ----> calloc also initializes the block by zeroing everything :) 
+
+    // void * realloc(void * ptr, size_t size) // reallocates data at ptr to a new block
+    // of size "size", either by allocating a whole new block or by extending the one at ptr
+
+    char * str;
+    char * p;
+    /* Initial memory allocation */
+    // str = (char *) malloc(16);
+    str = (char *) calloc(16, sizeof(char));
+    strcpy(str, "tutorialspoint");
+
+    for (p = str; *p; p++) // at the end of a string, *p evaluates to zero ('\0') thus false and loop terminates
+    {
+        printf("Character = %c,  Address = %u\n", *p, p);
+    }
+
+    // strcpy(str, "tutorialspoint-tutorialspoint"); // produces a warning :
+    // warning: ‘__builtin_memcpy’ writing 30 bytes into a region of size 16 overflows the destination
+    printf("----------------------------------------------------\n");
+    str = (char *) realloc(str, 32 * sizeof(char));
+    
+    strcpy(str, "tutorialspoint-tutorialspoint"); // cool :)
+
+    for (p = str; *p; p++) // at the end of a string, *p evaluates to zero ('\0') thus false and loop terminates
+    {
+        printf("Character = %c,  Address = %u\n", *p, p);
+    }
+
+    free(str); // I ACTUALLY FORGOT TO DO IT OMG !!!
 }

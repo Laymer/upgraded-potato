@@ -20,5 +20,6 @@ void * routine();
 int power(int x, unsigned int y);
 double pi(int loop);
 void threads_vs_procs();
+void remember_to_free();
 
 #endif /* UTIL_DOT_H */

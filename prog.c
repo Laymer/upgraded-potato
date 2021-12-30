@@ -80,6 +80,10 @@ int main(int argc, char const *argv[])
             printf("Running threads_vs_procs()...\n");
             threads_vs_procs();
             break;
+        case 10 :
+            printf("Running remember_to_free()...\n");
+            remember_to_free();
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -119,6 +123,7 @@ void print_menu(){
     printf("7) get_interface_addresses()\n");
     printf("8) fun_with_threads()\n");
     printf("9) threads_vs_procs()\n");
+    printf("10) remember_to_free()\n");
 }
 
 void convert_ascii(){
