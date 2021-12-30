@@ -72,6 +72,19 @@ Here the value of `output` will be **101** :heavy_exclamation_mark:
 
 ### Pointers
 
+#### "Address of" and "value of" operators
+
+Always good to have a reminder of this : 
+
+```
+int a = 100;
+
+*ptr = &a;
+
+```
+
+Second line : **declaring a pointer to an integer and initializing it with address of a.**
+
 #### Pointers to struct fields
 
 From [OverIQ](https://overiq.com/c-programming-101/pointer-to-a-structure-in-c/) :
