@@ -1,4 +1,5 @@
 #include "util.h"
+#include "workout.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -84,6 +85,10 @@ int main(int argc, char const *argv[])
             printf("Running remember_to_free()...\n");
             remember_to_free();
             break;
+        case 11 :
+            printf("Running training_database()...\n");
+            training_database();
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -124,6 +129,7 @@ void print_menu(){
     printf("8) fun_with_threads()\n");
     printf("9) threads_vs_procs()\n");
     printf("10) remember_to_free()\n");
+    printf("11) training_database()\n");
 }
 
 void convert_ascii(){
