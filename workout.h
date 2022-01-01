@@ -17,6 +17,12 @@ typedef struct exercise {
     struct exercise *    next;
 } exercise;
 
+typedef struct workout {
+    char                 name[255];
+    float                total_volume;
+    struct exercise *    exercises;
+} workout;
+
 /**
  * This is a function declaration.
  * It tells the compiler that the function exists somewhere.
