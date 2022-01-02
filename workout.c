@@ -21,20 +21,20 @@ void training_database(){
     workout wk;
     strcpy(wk.name, "Hypertrophy training");
 
-    enqueue_exercise(wk, ex1);
+    enqueue_exercise(&wk, &ex1);
     // enqueue_exercise(wk, ex2);
-    print_workout(wk);
+    print_workout(&wk);
 }
 
-void print_exercise(exercise ex){
-    printf("Exercise name : %s\n", ex.name);
-    printf("Number of repetitions per set : %d\n", ex.reps);
-    printf("Number of sets : %d\n", ex.sets);
-    printf("Exercise weight : %.2f Kg\n", ex.weight);
+void print_exercise(exercise * ex){
+    printf("Exercise name : %s\n", ex->name);
+    printf("Number of repetitions per set : %d\n", ex->reps);
+    printf("Number of sets : %d\n", ex->sets);
+    printf("Exercise weight : %.2f Kg\n", ex->weight);
 
-    if (ex.next != NULL)
+    if (ex->next != NULL)
     {
-        printf("Next exercise name : %s\n", ex.next->name);
+        printf("Next exercise name : %s\n", ex->next->name);
     }
 }
 
@@ -61,12 +61,24 @@ exercise create_exercise(const char name[255]
     }
 }
 
-void print_workout(workout wk){
-    printf("Workout name : %s\n", wk.name);
+void print_workout(workout * wk){
+    printf("Workout name : %s\n", wk->name);
 
-    exercise * ptr;
+    if (wk->exercises == NULL)
+    {
+        printf("Workout %s exercises is NULL\n", wk->name);
+    } else {
+        exercise * current = (struct exercise *) malloc(sizeof(struct exercise));
+        current = wk->exercises;
+        while(current != NULL) {
 
-    printf("exercise name : %s\n", wk.exercises->name);
+            printf("Printing exercise from %s\n", wk->name);
+            print_exercise(current);
+            current = current->next;
+        }
+        free(current);
+        printf("exercise name : %s\n", wk->exercises->name);
+    }
     // if (wk.exercises != NULL)
     // {
     //     for (ptr = wk.exercises; ptr; ++ptr)
@@ -78,26 +90,25 @@ void print_workout(workout wk){
     // }
 }
 
-void enqueue_exercise(workout wk, exercise ex){
-    print_exercise(ex);
-    if (wk.exercises == NULL)
+void enqueue_exercise(workout * wk, exercise * ex){
+    // print_exercise(ex);
+
+    if (wk->exercises == NULL)
     {
-        printf("assigning %s to %s\n", ex.name, wk.name);
-        wk.exercises = (struct exercise *) malloc(sizeof(struct exercise));
-        if (wk.exercises == NULL)
-        {       
-            printf("[ERROR] could not allocate memory for exercise in workout\n");
+        printf("Workout has no exercises, enqueuing at head...\n");
+        wk->exercises = (struct exercise *) malloc(sizeof(struct exercise));
+
+        if (wk->exercises == NULL)
+        {
+            printf("[ERROR] could not allocate memory for exercise while enqueuing\n");
             exit(1);
-        } else {
-            memcpy(wk.exercises, &ex, sizeof(struct exercise));
-        }        
-    } else {
-        exercise * current = wk.exercises;
-        while(current->next != NULL) {
-            current = current->next;
         }
 
-        current->next = &ex;
-    }
+        // memcpy(wk->exercises, ex, sizeof(struct exercise));
+        wk->exercises = ex;
+
+    } else {
+        printf("iterating to end of linked list\n");
+    }        
 }
 

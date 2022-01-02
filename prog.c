@@ -93,8 +93,8 @@ int main(int argc, char const *argv[])
             printf("Exiting...\n" );
     }
 
-
-    return 0;
+    exit(0);
+    // return 0;
 }
 
 void how_many_dogs(){

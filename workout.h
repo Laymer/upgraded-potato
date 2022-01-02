@@ -28,9 +28,9 @@ typedef struct workout {
  * It tells the compiler that the function exists somewhere.
  */
 void training_database();
-void print_exercise(exercise ex);
+void print_exercise(exercise * ex);
 exercise create_exercise(const char name[255], int reps, int sets, float weight, exercise * next);
-void print_workout(workout wk);
-void enqueue_exercise(workout wk, exercise ex);
+void print_workout(workout * wk);
+void enqueue_exercise(workout * wk, exercise * ex);
 
 #endif /* WORKOUT_DOT_H */
