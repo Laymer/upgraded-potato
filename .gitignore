@@ -54,3 +54,6 @@ dkms.conf
 .tags
 client
 server
+
+# idea
+.idea
