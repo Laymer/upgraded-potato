@@ -10,35 +10,40 @@
 #include <string.h> // for strcpy
 
 void training_database(){
-    exercise ex1 = create_exercise("Squat", 8, 4, 95.0, NULL);
-    exercise ex2 = create_exercise("Deadlift", 6, 4, 120.0, NULL);
+    char name1[255], name2[255];
+    strcpy(name1, "Squat");
+    strcpy(name2, "Deadlift");
+    exercise * ex1 = create_exercise(name1, 8, 4, 95.0, NULL);
+    exercise * ex2 = create_exercise(name2, 6, 4, 120.0, NULL);
 
-    ex1.next = &ex2;
+    ex1->next = ex2;
 
     // print_exercise(ex1);
     // print_exercise(ex2);
 
-    workout wk;
-    strcpy(wk.name, "Hypertrophy training");
-
-    enqueue_exercise(&wk, &ex1);
+    workout * wk = (struct workout *) malloc(sizeof(struct workout));
+    strcpy(wk->name, "Hypertrophy training");
+    wk->exercises = ex1;
+    ex1->next = ex2;
+//    enqueue_exercise(wk, ex1);
     // enqueue_exercise(wk, ex2);
-    print_workout(&wk);
+    print_workout(wk);
+    free(wk);
+    free(ex1);
+    free(ex2);
 }
 
 void print_exercise(exercise * ex){
-    printf("Exercise name : %s\n", ex->name);
-    printf("Number of repetitions per set : %d\n", ex->reps);
-    printf("Number of sets : %d\n", ex->sets);
-    printf("Exercise weight : %.2f Kg\n", ex->weight);
-
-    if (ex->next != NULL)
+    if (ex != NULL)
     {
-        printf("Next exercise name : %s\n", ex->next->name);
+        printf("Exercise name : %s\n", ex->name);
+        printf("Number of repetitions per set : %d\n", ex->reps);
+        printf("Number of sets : %d\n", ex->sets);
+        printf("Exercise weight : %.2f Kg\n", ex->weight);
     }
 }
 
-exercise create_exercise(const char name[255]
+exercise * create_exercise(const char name[255]
                             , int reps
                             , int sets
                             , float weight
@@ -51,34 +56,34 @@ exercise create_exercise(const char name[255]
         printf("[ERROR] could not allocate memory for exercise\n");
         exit(1);
     } else {
+        memset(new->name, '\0', sizeof(new->name));
         strcpy(new->name, name);
         new->reps = reps;
         new->sets = sets;
         new->weight = weight;
         new->next = next;
 
-        return *new;
+        return new;
     }
 }
 
 void print_workout(workout * wk){
-    printf("Workout name : %s\n", wk->name);
 
-    if (wk->exercises == NULL)
-    {
-        printf("Workout %s exercises is NULL\n", wk->name);
-    } else {
-        exercise * current = (struct exercise *) malloc(sizeof(struct exercise));
-        current = wk->exercises;
-        while(current != NULL) {
+     if (wk != NULL)
+     {
+         exercise * current = wk->exercises;
+         while (current != NULL){
+             print_exercise(current);
+             current = current->next;
+         }
+     }
+    //     printf("Workout name : %s\n", wk->name);
 
-            printf("Printing exercise from %s\n", wk->name);
-            print_exercise(current);
-            current = current->next;
-        }
-        free(current);
-        printf("exercise name : %s\n", wk->exercises->name);
-    }
+    //     if (wk->exercises == NULL)
+    //     {
+    //         printf("Workout %s exercises is NULL\n", wk->name);
+    //     } else {
+    //     }
     // if (wk.exercises != NULL)
     // {
     //     for (ptr = wk.exercises; ptr; ++ptr)
