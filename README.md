@@ -3,16 +3,18 @@ Learning C programming again for fun :)
 
 ## Random notes I found interesting
 
-*   [Character Conversion](#character-conversion)
+* [Character Conversion](#character-conversion)
     *   [Leading blank for `scanf()`](#leading-blank-for-scanf)
-*   [Operators](#operators)
+* [Operators](#operators)
     *   [Ternary operators](#ternary-operators)
     *   [Unary operators](#unary-operators)
-*   [Pointers](#pointers)
+* [Pointers](#pointers)
     *   [Pointers to struct fields](#pointers-to-struct-fields)
-*   [Threads and Procs](#threads-and-procs)
+* [Threads and Procs](#threads-and-procs)
     *   [Why does a printf after `fork()` display twice?](#why-does-a-printf-after-fork-display-twice)
-*   [Miscellaneous](#miscellaneous)
+* [Debugging](#debugging)
+*   *   [Valgrind](#valgrind)
+* [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
     *   [I C what you did there](#i-c-what-you-did-there)
 
@@ -183,7 +185,30 @@ If we want to represent the relationship between the processes as a tree hierarc
    /                  
  P7
 ```
-    
+### Debugging
+
+#### Valgrind
+How to track memory leaks using Valgrind :
+
+```
+valgrind --leak-check=yes --track-origins=yes -s ./program
+```
+
+And the most satisfying output you can possibly imagine having from that is
+something that looks like :
+
+```
+==41563== HEAP SUMMARY:
+==41563==     in use at exit: 0 bytes in 0 blocks
+==41563==   total heap usage: 5 allocs, 5 frees, 2,880 bytes allocated
+==41563== 
+==41563== All heap blocks were freed -- no leaks are possible
+==41563== 
+==41563== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+**Never forget to free !**
+
 ### Miscellaneous
 
 #### Math `pow()` function
