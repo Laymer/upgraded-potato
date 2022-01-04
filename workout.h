@@ -32,5 +32,6 @@ void print_exercise(exercise * ex);
 exercise * create_exercise(const char name[255], int reps, int sets, float weight, exercise * next);
 void print_workout(workout * wk);
 void enqueue_exercise(workout * wk, exercise * ex);
+void read_csv_file();
 
 #endif /* WORKOUT_DOT_H */

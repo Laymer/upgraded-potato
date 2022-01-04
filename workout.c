@@ -10,27 +10,28 @@
 #include <string.h> // for strcpy
 
 void training_database(){
-    char name1[255], name2[255];
-    strcpy(name1, "Squat");
-    strcpy(name2, "Deadlift");
-    exercise * ex1 = create_exercise(name1, 8, 4, 95.0, NULL);
-    exercise * ex2 = create_exercise(name2, 6, 4, 120.0, NULL);
-
-    ex1->next = ex2;
-
-    // print_exercise(ex1);
-    // print_exercise(ex2);
-
-    workout * wk = (struct workout *) malloc(sizeof(struct workout));
-    strcpy(wk->name, "Hypertrophy training");
-    wk->exercises = ex1;
-    ex1->next = ex2;
-//    enqueue_exercise(wk, ex1);
-    // enqueue_exercise(wk, ex2);
-    print_workout(wk);
-    free(wk);
-    free(ex1);
-    free(ex2);
+    read_csv_file();
+//    char name1[255], name2[255];
+//    strcpy(name1, "Squat");
+//    strcpy(name2, "Deadlift");
+//    exercise * ex1 = create_exercise(name1, 8, 4, 95.0, NULL);
+//    exercise * ex2 = create_exercise(name2, 6, 4, 120.0, NULL);
+//
+//    ex1->next = ex2;
+//
+//    // print_exercise(ex1);
+//    // print_exercise(ex2);
+//
+//    workout * wk = (struct workout *) malloc(sizeof(struct workout));
+//    strcpy(wk->name, "Hypertrophy training");
+//    wk->exercises = ex1;
+//    ex1->next = ex2;
+////    enqueue_exercise(wk, ex1);
+//    // enqueue_exercise(wk, ex2);
+//    print_workout(wk);
+//    free(wk);
+//    free(ex1);
+//    free(ex2);
 }
 
 void print_exercise(exercise * ex){
@@ -114,6 +115,57 @@ void enqueue_exercise(workout * wk, exercise * ex){
 
     } else {
         printf("iterating to end of linked list\n");
-    }        
+    }
 }
 
+void read_csv_file(){
+    FILE* stream = fopen("exercises.csv", "r");
+    char line[1024];
+    int header_flag = 1;
+
+    while (fgets(line, 1024, stream)){
+
+        if (header_flag){
+            header_flag = 0;
+            continue;
+        }
+
+        if (strcmp(line, "\n") == 0){
+            continue;
+        }
+        char * buffer = strdup(line);
+        const char * token;
+        int index = 0;
+
+        char name[255];
+        int reps, sets;
+        float weight;
+
+
+        for (token = strtok(line, ",");
+            token && *token;
+            token = strtok(NULL, ",\n")) {
+
+            switch (index) {
+                case 1:
+                    strcpy(name, token);
+                    break;
+                case 2:
+                    reps = strtol(token, NULL, 10);
+                    break;
+                case 3:
+                    sets = strtol(token, NULL, 10);
+                    break;
+                case 4:
+                    weight = strtof(token, NULL);
+                    break;
+                default:
+                    printf("Tokens[%d] : %s\n", index, token);
+            }
+            ++index;
+        }
+        exercise * ex = create_exercise(name, reps, sets, weight, NULL);
+        print_exercise(ex);
+        free(buffer);
+    }
+}
