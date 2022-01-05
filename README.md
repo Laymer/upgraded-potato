@@ -246,8 +246,8 @@ gcc $( pkg-config --cflags gtk4 ) -o gui gui.c $( pkg-config --libs gtk4 )
 
 Some pretty cool references I found :
 
-    - [GTK Tutorial](https://github.com/ToshioCP/Gtk4-tutorial)
-    - [GTK Drag n Drop](https://github.com/aeldemery/gtk4_dnd)
+* [GTK Tutorial](https://github.com/ToshioCP/Gtk4-tutorial)
+* [GTK Drag n Drop](https://github.com/aeldemery/gtk4_dnd)
 
 ### Miscellaneous
 
