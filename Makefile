@@ -29,6 +29,7 @@ workout:
 # 	gcc $( pkg-config --cflags gtk4 ) -o gui gui.c $( pkg-config --libs gtk4 )
 
 clean:
+	rm -rdf ./gui
 	rm -rdf ./prog.o
 	rm -rdf ./util.o
 	rm -rdf ./$(SERVERNAME)
