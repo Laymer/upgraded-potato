@@ -14,9 +14,12 @@ Learning C programming again for fun :)
     *   [Why does a printf after `fork()` display twice?](#why-does-a-printf-after-fork-display-twice)
 * [Debugging](#debugging)
 *   *   [Valgrind](#valgrind)
+* [GTK](#gtk)
+    *   [Installing GTK](#installing-gtk)
+    *   [Compiling GTK](#compiling-gtk)
+    *   [Learning GTK](#learning-gtk)
 * [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
-    *   [Installing GTK](#installing-gtk)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -210,15 +213,7 @@ something that looks like :
 
 **Never forget to free !**
 
-### Miscellaneous
-
-#### Math `pow()` function
-
-Trying to use the `math.h` function `pow()`, 
-I ran into the error described [in this post](https://stackoverflow.com/questions/12824134/undefined-reference-to-pow-in-c-despite-including-math-h).
-
-For some reason even with the linker flag, I kept getting the same error
-so I just wrote a power function :smile:
+### GTK
 
 #### Installing GTK
 
@@ -233,6 +228,36 @@ to install version 3 (more stable ?) :
 ```
 sudo apt install libgtk-3-dev
 ```
+
+#### Compiling GTK
+
+For some reason the exact same command works in terminal but produces an
+error using make.
+
+Compiling with output :
+
+```
+gcc $( pkg-config --cflags gtk4 ) -o gui gui.c $( pkg-config --libs gtk4 )
+```
+
+**NOTE** : having a `main` function is mandatory, otherwise the linker will fail.  
+
+#### Learning GTK
+
+Some pretty cool references I found :
+
+    - [GTK Tutorial](https://github.com/ToshioCP/Gtk4-tutorial)
+    - [GTK Drag n Drop](https://github.com/aeldemery/gtk4_dnd)
+
+### Miscellaneous
+
+#### Math `pow()` function
+
+Trying to use the `math.h` function `pow()`, 
+I ran into the error described [in this post](https://stackoverflow.com/questions/12824134/undefined-reference-to-pow-in-c-despite-including-math-h).
+
+For some reason even with the linker flag, I kept getting the same error
+so I just wrote a power function :smile:
 
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
