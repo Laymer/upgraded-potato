@@ -1,5 +1,6 @@
 #include "util.h"
 #include "workout.h"
+#include "gui.h"
 
 #include <stdio.h>
 #include <stdlib.h>
