@@ -23,7 +23,6 @@
 #include <signal.h> // SIGKILL
 
 #include <unistd.h>
-// #include <conio.h>
 
 void get_interface_addresses(char * ifname, char * address){
 
