@@ -1,6 +1,8 @@
 # The upgraded-potato
 Learning C programming again for fun :)
 
+<img src="https://yt3.ggpht.com/a/AGF-l79REyhoc8SBId2NuI6fb7bUpodJz4tGKjYgNQ=s900-c-k-c0xffffffff-no-rj-mo" data-canonical-src="https://yt3.ggpht.com/a/AGF-l79REyhoc8SBId2NuI6fb7bUpodJz4tGKjYgNQ=s900-c-k-c0xffffffff-no-rj-mo" width="400" height="400" />
+
 ## Random notes I found interesting
 
 * [Character Conversion](#character-conversion)
