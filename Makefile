@@ -24,6 +24,10 @@ util:
 workout:
 	$(CC) $(LDFLAGS) -c $(WORKOUT)
 
+# DOES NOT WORK USING MAKE BUT I DON'T UNDERSTAND WHY PLEASE HELP :
+# gui:
+# 	gcc $( pkg-config --cflags gtk4 ) -o gui gui.c $( pkg-config --libs gtk4 )
+
 clean:
 	rm -rdf ./prog.o
 	rm -rdf ./util.o
