@@ -16,6 +16,7 @@ Learning C programming again for fun :)
 *   *   [Valgrind](#valgrind)
 * [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
+    *   [Installing GTK](#installing-gtk)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -218,6 +219,20 @@ I ran into the error described [in this post](https://stackoverflow.com/question
 
 For some reason even with the linker flag, I kept getting the same error
 so I just wrote a power function :smile:
+
+#### Installing GTK
+
+To install GTK version 4 (latest at time of writing) :
+
+```
+sudo apt install libgtk-4-dev
+```
+
+to install version 3 (more stable ?) :
+
+```
+sudo apt install libgtk-3-dev
+```
 
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
