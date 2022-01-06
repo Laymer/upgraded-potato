@@ -22,6 +22,7 @@ Learning C programming again for fun :)
     *   [Learning GTK](#learning-gtk)
 * [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
+    *   [Interesting stuff to do](#interesting-stuff-to-do)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
