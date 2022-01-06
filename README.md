@@ -261,5 +261,12 @@ I ran into the error described [in this post](https://stackoverflow.com/question
 For some reason even with the linker flag, I kept getting the same error
 so I just wrote a power function :smile:
 
+#### Interesting stuff to do
+
+* Bitwise calculus
+* Protocols (HTTP, FTP, etc.)
+* Vector/Matrix calculus
+* Kernel modules
+
 #### I C what you did there
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
