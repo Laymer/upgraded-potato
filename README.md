@@ -22,6 +22,7 @@ Learning C programming again for fun :)
     *   [Learning GTK](#learning-gtk)
 * [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
+    *   [`printf` function outputs unwanted characters](#printf-function-outputs-unwanted-characters)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -261,5 +262,31 @@ I ran into the error described [in this post](https://stackoverflow.com/question
 For some reason even with the linker flag, I kept getting the same error
 so I just wrote a power function :smile:
 
+#### `printf` function outputs unwanted characters
+
+Sometimes you just need to print out things to console to see what you're doing.
+But sometimes you also end up with random gibberish characters on top of your output.
+
+For example :
+
+![What the heck is this?](https://imgur.com/522jQC6.png)
+
+Fortunately, some smart people helped me figure out why such event may come to occur.
+Quoting a reply on [this post](https://stackoverflow.com/a/49693582) : 
+
+*Therefore, if the last character in your array isn't 0, the above loop will continue until there happens to be a 0 somewhere in the memory that follows.*
+
+Since the `bit_wisdom` function was returning an array of characters without a terminating zero,
+calling `printf` on the result with a string conversion character (`%s`) would loop through the array,
+print the whole thing and then keep printing characters because `'\0'` was never used.
+
+So instead of returning an array of 32 characters, I changed `bit_wisdom` to return
+an array of 33 characters, all set to `'\0'` using `memset` at the beginning and of which
+the first 32 would be filled with the binary representation of the number.
+
+The result is a clean print : :smile: 
+
+![What the heck is this?](https://imgur.com/MhR9J2F.png)
+
 #### I C what you did there
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Smol kotik](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
