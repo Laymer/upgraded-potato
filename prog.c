@@ -90,6 +90,10 @@ int main(int argc, char const *argv[])
             printf("Running training_database()...\n");
             training_database();
             break;
+        case 12 :
+            printf("Running bit_wisdom()...\n");
+            bit_wisdom();
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -131,6 +135,7 @@ void print_menu(){
     printf("9) threads_vs_procs()\n");
     printf("10) remember_to_free()\n");
     printf("11) training_database()\n");
+    printf("12) bit_wisdom()\n");
 }
 
 void convert_ascii(){
