@@ -231,3 +231,39 @@ void remember_to_free(){
 
     free(str); // I ACTUALLY FORGOT TO DO IT OMG !!!
 }
+
+char * showbits(unsigned int x)
+{
+    int i=0;
+    char char_array[33];
+    char *str_to_ret = malloc (sizeof (char) * 33);
+    memset(str_to_ret, '\0', 33);
+    memset(char_array, '\0', 33);
+
+    for (i = 31; i >= 0; i--)
+    {
+        char bit = x & (1u << i) ? '1' : '0';
+        char_array[(31 - i)] = bit;
+    }
+    strcpy(str_to_ret, char_array);
+    return str_to_ret;
+}
+
+void bit_wisdom(){
+
+    int x = 65536 + 3;
+    printf("Decimal : %u\nBinary  : %s\n", x, showbits(x));
+    printf("------------------------------------------\n");
+
+    int y = 4;
+    printf("Decimal : %u\nBinary  : %s\n", y, showbits(y));
+    printf("------------------------------------------\n");
+
+    int z = x & y;
+    printf("Decimal : %u\nBinary  : %s\n", z, showbits(z));
+    printf("------------------------------------------\n");
+
+    z = x | y;
+    printf("Decimal : %u\nBinary  : %s\n", z, showbits(z));
+    printf("------------------------------------------\n");
+}

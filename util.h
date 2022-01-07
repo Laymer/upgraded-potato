@@ -21,5 +21,6 @@ int power(int x, unsigned int y);
 double pi(int loop);
 void threads_vs_procs();
 void remember_to_free();
-
+void bit_wisdom();
+char * showbits(unsigned int x);
 #endif /* UTIL_DOT_H */
