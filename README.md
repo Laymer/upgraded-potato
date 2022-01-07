@@ -23,6 +23,7 @@ Learning C programming again for fun :)
 * [Miscellaneous](#miscellaneous)
     *   [Math `pow()` function](#math-pow-function)
     *   [`printf` function outputs unwanted characters](#printf-function-outputs-unwanted-characters)
+    *   [Interesting stuff to do](#interesting-stuff-to-do)
     *   [I C what you did there](#i-c-what-you-did-there)
 
 * * *
@@ -287,6 +288,13 @@ the first 32 would be filled with the binary representation of the number.
 The result is a clean print : :smile: 
 
 ![What the heck is this?](https://imgur.com/MhR9J2F.png)
+
+#### Interesting stuff to do
+
+* Bitwise calculus
+* Protocols (HTTP, FTP, etc.)
+* Vector/Matrix calculus
+* Kernel modules
 
 #### I C what you did there
 ![Smol kotik](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
