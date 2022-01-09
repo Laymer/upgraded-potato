@@ -12,6 +12,8 @@ Learning C programming again for fun :)
     *   [Unary operators](#unary-operators)
 * [Pointers](#pointers)
     *   [Pointers to struct fields](#pointers-to-struct-fields)
+    *   ["Address of" and "value of" operators](#address-of-and-value-of-operators)
+    *   [Initializing arrays of integers](#initializing-arrays-of-integers)
 * [Threads and Procs](#threads-and-procs)
     *   [Why does a printf after `fork()` display twice?](#why-does-a-printf-after-fork-display-twice)
 * [Debugging](#debugging)
@@ -113,6 +115,42 @@ This means :
 is equivalent to :
 
 `person->age` (here `person` holds the address of the struct)
+
+#### Initializing arrays of integers
+
+When I wrote a function to multiply two vectors, I did something such as :
+
+```
+const int array_size = 3;
+int vector[array_size] = {1, 2, 3};
+```
+
+And would see the error below :
+
+```
+error: switch jumps into scope of identifier with variably modified type
+
+note: switch starts here
+    switch(menu_option) {
+    ^
+note: v1 declared here
+    int v1[length];
+    ^
+```
+
+Because the assignment was found in one case of a switch statement,
+the error would be thrown with a mention of it. But as explained in
+[this answer](https://stackoverflow.com/a/3082986), C does not allow it :
+
+*You receive this error because in C language you are
+not allowed to use initializers with variable length arrays.*
+
+An easy solution to this is to set the size as a constant and use
+that constant :
+
+```
+ìnt vector[ARRAY_LEN];
+```
 
 ### Threads and Procs
 
