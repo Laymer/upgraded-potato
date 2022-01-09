@@ -94,6 +94,28 @@ int main(int argc, char const *argv[])
             printf("Running bit_wisdom()...\n");
             bit_wisdom();
             break;
+        case 13 :
+            printf("Running v_multiply()...\n");
+            int v1[ARRAY_LEN];
+            int v2[ARRAY_LEN];
+            for (int i = 1; i <= ARRAY_LEN; ++i)
+            {
+                v1[i - 1] = i;
+                v2[i - 1] = i + ARRAY_LEN;
+            }
+            v_multiply(v1, v2, ARRAY_LEN);
+            break;
+        case 14 :
+            printf("Running v_addition()...\n");
+            int v3[ARRAY_LEN];
+            int v4[ARRAY_LEN];
+            for (int i = 1; i <= ARRAY_LEN; ++i)
+            {
+                v3[i - 1] = i;
+                v4[i - 1] = i + ARRAY_LEN;
+            }
+            v_addition(v3, v4, ARRAY_LEN);
+            break;
         default :
             printf("Exiting...\n" );
     }
@@ -136,6 +158,8 @@ void print_menu(){
     printf("10) remember_to_free()\n");
     printf("11) training_database()\n");
     printf("12) bit_wisdom()\n");
+    printf("13) v_multiply()\n");
+    printf("14) v_addition()\n");
 }
 
 void convert_ascii(){
