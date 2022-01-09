@@ -10,6 +10,10 @@
 #define CLIENT 0
 #endif
 
+#ifndef ARRAY_LEN
+#define ARRAY_LEN 3
+#endif
+
 /**
  * This is a function declaration.
  * It tells the compiler that the function exists somewhere.
@@ -23,4 +27,6 @@ void threads_vs_procs();
 void remember_to_free();
 void bit_wisdom();
 char * showbits(unsigned int x);
+int * v_multiply(int v1[], int v2[], int length);
+int * v_addition(int v1[], int v2[], int length);
 #endif /* UTIL_DOT_H */

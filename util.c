@@ -267,3 +267,67 @@ void bit_wisdom(){
     printf("Decimal : %u\nBinary  : %s\n", z, showbits(z));
     printf("------------------------------------------\n");
 }
+
+int * v_multiply(int v1[], int v2[], int length){
+
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array v1 Elem at %d : %d\n", i, v1[i]);
+    }
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array v2 Elem at %d : %d\n", i, v2[i]);
+    }
+
+
+    // int res[ARRAY_LEN];
+    int * res = (int *) malloc (sizeof (int) * ARRAY_LEN);
+
+    for (int i = 0; i < length; ++i)
+    {
+        res[i] = v1[i] * v2[i];
+    }
+
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array res Elem at %d : %d\n", i, res[i]);
+    }
+
+    return res;
+    // num = (sizeof(v1) / sizeof(int));
+    // printf("size of array 1 : %u\n", num);
+    // length = sizeof(v2) / sizeof(v2[0]);
+    // printf("size of array 2 : %u\n", length);
+}
+
+int * v_addition(int v1[], int v2[], int length){
+
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array v1 Elem at %d : %d\n", i, v1[i]);
+    }
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array v2 Elem at %d : %d\n", i, v2[i]);
+    }
+
+
+    // int res[ARRAY_LEN];
+    int * res = (int *) malloc (sizeof (int) * ARRAY_LEN);
+
+    for (int i = 0; i < length; ++i)
+    {
+        res[i] = v1[i] + v2[i];
+    }
+
+    for (int i = 0; i < length; ++i)
+    {
+        printf("Array res Elem at %d : %d\n", i, res[i]);
+    }
+
+    return res;
+    // num = (sizeof(v1) / sizeof(int));
+    // printf("size of array 1 : %u\n", num);
+    // length = sizeof(v2) / sizeof(v2[0]);
+    // printf("size of array 2 : %u\n", length);
+}
