@@ -295,6 +295,7 @@ The result is a clean print : :smile:
 * Protocols (HTTP, FTP, etc.)
 * Vector/Matrix calculus
 * Kernel modules
+* Something with AI in C
 
 #### I C what you did there
 ![Smol kotik](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
